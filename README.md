@@ -77,6 +77,12 @@ Consistency is restored through **syntactic discipline**, not semantic restricti
 
 ---
 
+## Quick demos
+- **Lean (<1 minute):** see `formal/lean`
+- **Agda:** see `formal/agda`
+
+---
+
 ## Citation
 If you reference this work, please cite:
 
