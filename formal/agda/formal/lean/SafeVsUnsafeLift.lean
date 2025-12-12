@@ -14,39 +14,23 @@ def zero      : E := ⟨"zero"⟩
 def snowQuote : E := ⟨"snowQuote"⟩
 def liarQuote : E := ⟨"liarQuote"⟩
 
--- Prop = propositions (truth-bearers), packaged with proof-irrelevance
-structure Prop where
-  carrier : Type
-  isProp  : ∀ (a b : carrier), a = b
+-- “Truth-bearers” live in Prop (truth-apt only)
+structure TruthBearer where
+  carrier : Prop
 
--- A SafeLift witness:
--- independent meaning + survives "removal of evaluation" for any evaluator R : Prop → Prop
-structure SafeLift (ι : E) (φ : Prop) where
+-- Negation-as-evaluator: maps a truth-bearer ψ to (ψ → False)
+def Neg (ψ : TruthBearer) : TruthBearer :=
+  { carrier := ψ.carrier → False }
+
+-- SafeLift: a witness that (ι : E) is allowed to be lifted into φ,
+-- and that the lift “survives” any evaluator R by producing (R φ).
+structure SafeLift (ι : E) (φ : TruthBearer) where
   independent : φ.carrier
-  survivesWithoutEvaluation : ∀ (R : Prop → Prop), φ.carrier
-
--- A trivial Prop: True is a proposition
-def TrueProp : Prop :=
-  { carrier := True
-    isProp  := by intro a b; cases a; cases b; rfl }
-
--- Example: a safe lift exists for a harmless quote into TrueProp
-def safeSnow : SafeLift snowQuote TrueProp :=
-  { independent := True.intro
-    survivesWithoutEvaluation := by intro R; exact True.intro }
-
--- Negation-as-evaluator: R ψ = (ψ → False), packaged as a Prop
-def Neg (ψ : Prop) : Prop :=
-  { carrier := ψ.carrier → False
-    isProp  := by
-      intro f g
-      -- proof-irrelevance for functions into False (classic/extensional in Lean)
-      funext x
-      cases (f x) }
+  survivesWithoutEvaluation : ∀ (R : TruthBearer → TruthBearer), (R φ).carrier
 
 -- Liar impossibility:
 -- If a SafeLift exists for liarQuote into any φ, contradiction follows by choosing Neg
-theorem liar_impossible (φ : Prop) (h : SafeLift liarQuote φ) : False :=
+theorem liar_impossible (φ : TruthBearer) (h : SafeLift liarQuote φ) : False :=
 by
   have notφ : φ.carrier → False := h.survivesWithoutEvaluation Neg
   exact notφ h.independent
