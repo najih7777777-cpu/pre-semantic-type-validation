@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17754316.svg)](https://doi.org/10.5281/zenodo.17754316)
+
 # Pre-Semantic Type Validation (PTV)
 ### The Step-Zero Rejection Criterion
 
@@ -81,6 +83,18 @@ If you reference this work, please cite:
 Najih O. Salhab.  
 *The Step-Zero Rejection Criterion*.  
 Zenodo, 2025.
+
+---
+## Related Zenodo Records
+
+This repository is the active development and formal consolidation space
+for the following archived and citable Zenodo records:
+
+- Najih O. Salhab (2025). *The Step-Zero Rejection Criterion*. Zenodo.  
+  https://zenodo.org/records/17754316
+
+- Najih O. Salhab (2025). *Why Gödel’s §4 Sentence and Turing’s Diagonal Machine Are Ill-Typed Before Any Arithmetization Under Pre-Semantic Type Validation*. Zenodo.  
+  https://zenodo.org/records/17786635
 
 ---
 
