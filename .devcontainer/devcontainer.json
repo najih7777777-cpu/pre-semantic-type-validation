@@ -1,0 +1,12 @@
+{
+  "name": "PTV Lean Demo",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "leanprover.lean4"
+      ]
+    }
+  },
+  "postCreateCommand": "bash -lc 'curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y && echo \"source $HOME/.elan/env\" >> $HOME/.bashrc'"
+}
