@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "Pre-Semantic Type Validation: The Step-Zero Rejection Criterion"
+authors:
+  - family-names: Salhab
+    given-names: Najih O.
+year: 2025
+license: CC-BY-NC-4.0
+repository-code: https://github.com/najih7777777-cpu/pre-semantic-type-validation
+abstract: >
+  A formation-level type-theoretic framework that rejects self-referential paradoxes
+  prior to propositional lift by enforcing a classical distinction between terms and propositions.
